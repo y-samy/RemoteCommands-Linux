@@ -37,8 +37,6 @@ sourceSets.main {
 repositories {
     mavenCentral()
     maven("https://repo.spongepowered.org/maven/")
-    // If you don't want to log in with your real minecraft account, remove this line
-    maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
 }
 
 val shadowImpl: Configuration by configurations.creating {
@@ -50,7 +48,6 @@ dependencies {
     mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
     shadowImpl("com.github.hypfvieh:dbus-java:3.3.2")
-
     }
 
 
@@ -83,9 +80,10 @@ tasks.shadowJar {
             println("Config: ${it.files}")
         }
     }
+    exclude(
+            "META-INF/versions/11/"
+    )
 
-    // If you want to include other dependencies and shadow them, you can relocate them in here
-    fun relocate(name: String) = relocate(name, "com.arabianonymous.remotecommands.deps.$name")
 }
 
 tasks.assemble.get().dependsOn(tasks.remapJar)
