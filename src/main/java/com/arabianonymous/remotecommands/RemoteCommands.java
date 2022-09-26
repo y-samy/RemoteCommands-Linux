@@ -11,7 +11,6 @@ import org.freedesktop.dbus.exceptions.DBusException;
 public class RemoteCommands {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) throws DBusException {
-        System.out.println("Dirt: " + Blocks.dirt.getUnlocalizedName());
         new ModDbusObject();
     }
 }
