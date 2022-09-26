@@ -48,7 +48,7 @@ dependencies {
     mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
     shadowImpl("com.github.hypfvieh:dbus-java:3.3.2")
-    }
+}
 
 
 // Tasks:
@@ -62,6 +62,7 @@ tasks.withType(Jar::class) {
     manifest.attributes.run {
         this["FMLCorePluginContainsFMLMod"] = "true"
         this["ForceLoadAsMod"] = "true"
+        this["FMLCorePlugin"] = "com.arabianonymous.remotecommands"
     }
 }
 
